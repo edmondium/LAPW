@@ -1,0 +1,68 @@
+﻿  Starting remote build
+  Compiling sources:
+  main.cpp
+L: included from \mnt\e\tes\DFTAtom\LAPW\main.cpp(16): message : 
+E:\tes\DFTAtom\LAPW\kmesh.h(49,27): warning : conversion to ‘int’ from ‘std::streamsize {aka long int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\kmesh.h(81,23): warning : conversion to ‘int’ from ‘std::list<dvector3>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+L: included from \mnt\e\tes\DFTAtom\LAPW\main.cpp(23): message : 
+E:\tes\DFTAtom\LAPW\core.h(11,20): warning : ‘RadialWave::Solution’ will be initialized after [-Wreorder]
+E:\tes\DFTAtom\LAPW\core.h(10,20): warning : ‘std::vector<double> RadialWave::R’ [-Wreorder]
+E:\tes\DFTAtom\LAPW\core.h(16,5): warning : when initialized here [-Wreorder]
+E:\tes\DFTAtom\LAPW\core.h(16,60): warning : conversion to ‘int’ from ‘std::vector<double>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\core.h(28,38): warning : conversion to ‘int’ from ‘std::vector<double>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\core.h(29,36): warning : conversion to ‘int’ from ‘std::vector<double>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\core.h(37,31): warning : conversion to ‘int’ from ‘std::vector<double>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\core.h(38,43): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+L: included from \mnt\e\tes\DFTAtom\LAPW\main.cpp(23): message : 
+E:\tes\DFTAtom\LAPW\core.h(39,74): warning : conversion to ‘int’ from ‘std::vector<double>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\core.h(40,38): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\core.h(46,36): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\core.h(50,40): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\core.h(76,35): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\core.h(80,20): warning : unused variable ‘j’ [-Wunused-variable]
+E:\tes\DFTAtom\LAPW\main.cpp(35,43): warning : conversion to ‘int’ from ‘std::vector<dvector3>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\main.cpp(36,43): warning : conversion to ‘int’ from ‘std::vector<dvector3>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\main.cpp(92,35): warning : conversion to ‘int’ from ‘std::vector<dvector3>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\main.cpp(132,43): warning : conversion to ‘int’ from ‘std::vector<double>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\main.cpp(149,40): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\main.cpp(153,38): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\main.cpp(155,44): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\main.cpp(164,37): warning : conversion to ‘int’ from ‘std::vector<double>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\main.cpp(166,44): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\main.cpp(167,76): warning : conversion to ‘int’ from ‘std::vector<double>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\main.cpp(168,41): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\main.cpp(172,46): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\main.cpp(176,44): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\main.cpp(179,48): warning : conversion to ‘int’ from ‘std::vector<double>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\main.cpp(180,41): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\main.cpp(181,67): warning : conversion to ‘int’ from ‘std::vector<double>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\main.cpp(182,41): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\main.cpp(185,46): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\main.cpp(189,42): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\main.cpp(190,66): warning : conversion to ‘int’ from ‘std::vector<double>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\main.cpp(193,32): warning : conversion to ‘int’ from ‘std::vector<double>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\main.cpp(206,5): warning : no return statement in function returning non-void [-Wreturn-type]
+E:\tes\DFTAtom\LAPW\main.cpp(236,36): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\main.cpp(238,32): warning : conversion to ‘int’ from ‘std::vector<double>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\main.cpp(240,33): warning : conversion to ‘int’ from ‘std::vector<double>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\main.cpp(243,36): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\main.cpp(399,43): warning : conversion to ‘int’ from ‘std::vector<double>::size_type {aka long unsigned int}’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\main.cpp(400,32): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\main.cpp(469,35): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+E:\tes\DFTAtom\LAPW\main.cpp(494,36): warning : comparison between signed and unsigned integer expressions [-Wsign-compare]
+L: included from \mnt\e\tes\DFTAtom\LAPW\main.cpp(20): message : 
+E:\tes\DFTAtom\LAPW\blas.h(17,41): message : required from here
+E:\tes\DFTAtom\LAPW\function.h(216,18): warning : conversion to ‘int’ from ‘long unsigned int’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\function.h(227,45): message : in expansion of macro ‘HPoffset’
+E:\tes\DFTAtom\LAPW\blas.h(24,11): message : required from here
+E:\tes\DFTAtom\LAPW\function.h(216,18): warning : conversion to ‘int’ from ‘long unsigned int’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\function.h(251,74): message : in expansion of macro ‘HPoffset’
+E:\tes\DFTAtom\LAPW\function.h(216,18): warning : conversion to ‘int’ from ‘long unsigned int’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\function.h(258,48): message : in expansion of macro ‘HPoffset’
+E:\tes\DFTAtom\LAPW\main.cpp(267,67): message : required from here
+E:\tes\DFTAtom\LAPW\function.h(216,18): warning : conversion to ‘int’ from ‘long unsigned int’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\function.h(270,71): message : in expansion of macro ‘HPoffset’
+E:\tes\DFTAtom\LAPW\function.h(216,18): warning : conversion to ‘int’ from ‘long unsigned int’ may alter its value [-Wconversion]
+E:\tes\DFTAtom\LAPW\function.h(276,48): message : in expansion of macro ‘HPoffset’
+  Linking objects
+  LAPW.vcxproj -> E:\tes\DFTAtom\LAPW\bin\x64\Debug\LAPW.out

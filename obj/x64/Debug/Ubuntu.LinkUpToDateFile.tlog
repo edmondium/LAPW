@@ -1,0 +1,1 @@
+g++ -o "/mnt/e/tes/DFTAtom/LAPW/bin/x64/Debug/LAPW.out" -Wl,--no-undefined -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack /mnt/e/tes/DFTAtom/LAPW/obj/x64/Debug/main.o
