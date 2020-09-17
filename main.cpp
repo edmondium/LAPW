@@ -622,5 +622,4 @@ int main(int argc, char* argv[], char* env[])
 
     return 0;
 }
-//const double ExchangeCorrelation::alphax;
 const double ExchangeCorrelation::alphax;
