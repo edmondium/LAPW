@@ -5,18 +5,18 @@ objects = main.o
 exe = lapw
 CFLAGS = -O3
 FFLAGS = -O3
-
+CXXFLAGS = -std=c++23
 $(exe) : $(objects)
-	g++ $(CFLAGS) -g -o $@ $(objects) $(LIBS)
-
+#	g++ $(CFLAGS) -g -o $@ $(objects) $(LIBS)
+	$(C++) $(CFLAGS) $(CXXFLAGS) -g -o $@ $(objects)
 clean :
 	rm -f $(objects) $(exe)
 
 
 .SUFFIXES : .cpp
 .cpp.o:
-	$(C++) $(CFLAGS) -fPIE -c $<
-
+#	$(C++) $(CFLAGS) -fPIE -c $<
+	$(C++) $(CFLAGS) $(CXXFLAGS) -c $<
 .SUFFIXES : .f
 .f.o:
 	$(F77) $(FFLAGS) -c $<

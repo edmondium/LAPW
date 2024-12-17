@@ -402,7 +402,8 @@ inline void xsymm(const char* side, const char* uplo, int m, int n, double alpha
 
 // Test for non-quadratic matrices
 template <class T>
-inline void function2D<T>::Product(const std::string& transa, const std::string& transb, const function2D& A, const function2D& B, const T& alpha = 1, const T& beta = 0)
+inline void function2D<T>::Product(const std::string& transa, const std::string& transb, const function2D& A, const function2D& B, const T& alpha, const T& beta)
+//inline void function2D<T>::Product(const std::string& transa, const std::string& transb, const function2D& A, const function2D& B, const T& alpha = 1, const T& beta = 0)
 {
     if (transa != "N" && transa != "T") { cerr << "Did not recognize your task. Specify how to multiply matrices in dgemm!" << endl; return; }
     if (transa == "N" && transb == "N") {

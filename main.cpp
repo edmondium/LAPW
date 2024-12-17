@@ -74,20 +74,20 @@ public:
         Kmesh.resize(Ksize);
         int j = 0;
         for (list<dvector3>::const_iterator l = Kmesh0.begin(); l != Kmesh0.end() && j < Ksize; l++, j++) Kmesh[j] = *l;
-        clog << "K-mesh size=" << Kmesh.size() << endl;
+        clog << "K-mesh size = " << Kmesh.size() << endl;
     }
     void ChoosePointsInFBZ(int nkp, int type = 0) {// Chooses the path in the 1BZ we will use
         if (type == 0) { // Choose mesh in the 1BZ to cover the whole space - for SC calculation
             list<dvector3> kp;
             Generate_All_K_Points(nkp, b0, b1, b2, kp);
-            clog << "Number of all k-points=" << kp.size() << endl;
+            clog << "Number of all k-points = " << kp.size() << endl;
             ChooseIrreducible(kp, kmesh, wkp);
-            clog << "Number of irreducible k points is: " << kmesh.size() << endl;
+            clog << "Number of irreducible k points is " << kmesh.size() << endl;
         }
         else {        // Choose one particular path in the 1BZ - for plotting purposes
             int tm = 4 * static_cast<int>(nkp * nkp * nkp / 4.);
             int nkp = tm;
-            clog << "nkp=" << nkp << endl;
+            clog << "nkp = " << nkp << endl;
             kmesh.resize(nkp);
             int N0 = kmesh.size() / 4;
             for (int i = 0; i < N0; i++) kmesh[i] = GammaPoint + (XPoint - GammaPoint) * i / (N0 - 1.);
@@ -203,6 +203,7 @@ public:
             Psi[l] = ur[N0] / RMuffinTin;
             Psip[l] = urp[N0] / RMuffinTin;
         }
+        return 0;
     }
 };
 
@@ -333,20 +334,28 @@ public:
                     C2_1(iK, jK) = C2l[il](iK, jK) * (omegal(iK, il) + omegal(jK, il));
                     C2_2(iK, jK) = C2l[il](iK, jK) * omegal(iK, il) * omegal(jK, il);
                 }
-            temp0.Product("N", "N", Ham, C2l[il]);
-            temp1.Product("N", "T", temp0, Ham);
+            //temp0.Product("N", "N", Ham, C2l[il]);
+            temp0.Product("N", "N", Ham, C2l[il], 1.0, 0.0);
+            //temp1.Product("N", "T", temp0, Ham);
+            temp1.Product("N", "T", temp0, Ham, 1.0, 0.0);
             for (int p = 0; p < Ksize; p++)	weigh0[ik][il][p] = temp1(p, p);
 
-            temp0.Product("N", "N", Ham, C2_1);
-            temp1.Product("N", "T", temp0, Ham);
+            //temp0.Product("N", "N", Ham, C2_1);
+            temp0.Product("N", "N", Ham, C2_1, 1.0, 0.0);
+            //temp1.Product("N", "T", temp0, Ham);
+            temp1.Product("N", "T", temp0, Ham, 1.0, 0.0);
             for (int p = 0; p < Ksize; p++)	weigh1[ik][il][p] = temp1(p, p);
 
-            temp0.Product("N", "N", Ham, C2_2);
-            temp1.Product("N", "T", temp0, Ham);
+            //temp0.Product("N", "N", Ham, C2_2);
+            temp0.Product("N", "N", Ham, C2_2, 1.0, 0.0);
+            //temp1.Product("N", "T", temp0, Ham);
+            temp1.Product("N", "T", temp0, Ham, 1.0, 0.0);
             for (int p = 0; p < Ksize; p++)	weigh2[ik][il][p] = temp1(p, p);
         }
-        temp0.Product("N", "N", Ham, Olap_I);
-        temp1.Product("N", "T", temp0, Ham);
+        //temp0.Product("N", "N", Ham, Olap_I);
+        temp0.Product("N", "N", Ham, Olap_I, 1.0, 0.0);
+        //temp1.Product("N", "T", temp0, Ham);
+        temp1.Product("N", "T", temp0, Ham, 1.0, 0.0);
         for (int p = 0; p < Ksize; p++)	weighI[ik][p] = temp1(p, p);
     }
 
@@ -408,13 +417,13 @@ int main(int argc, char* argv[], char* env[])
     int lMax = 5;                   // Maximum l considered in calculation
     int N = 1001;                 // Number of points in radial mesh
     int nkp = 8;                  // Number of k-points in 1BZ: (nkp x nkp x nkp)
-    double CutOffK = 3.5;           // Largest lengt of reciprocal vectors K (only shorter vec. are taken into account)
+    double CutOffK = 3.5;           // Largest length of reciprocal vectors K (only shorter vec. are taken into account)
     double dEz = 0.1;             // Step in serching for core states
     double mu_min = 0.0, mu_max = 1.5;// Interval where chemical potential is looking for
     double Mix = 0.2;             // Linear mixing parameter for charge
     double Vmix = 0.2;            // Linear mixing parameter for potential
     double precision = 1e-5;        // accuracy of energy
-    int nitt = 200;               // maximum number of itterations
+    int nitt = 200;               // maximum number of iterations
     bool read = false;              // weather to read input potential
     ///// Core states/////////////
     int lMaxCore = 2;
@@ -450,7 +459,7 @@ int main(int argc, char* argv[], char* env[])
             std::clog << "           -lmax       Maximum l used in calculation (" << lMax << ")\n";
             std::clog << "           -N          Number of points in radial mesh (" << N << ")\n";
             std::clog << "           -nkp        Number of k-points from IRBZ used (nkp x nkp x nkp) (" << nkp << ")\n";
-            std::clog << "           -CutOffK    Largest lengt of reciprocal vectors K (only shorter vec. are taken into account) (" << CutOffK << ")\n";
+            std::clog << "           -CutOffK    Largest length of reciprocal vectors K (only shorter vec. are taken into account) (" << CutOffK << ")\n";
             std::clog << "           -mumin      Start looking for chemical potential (" << mu_min << ")\n";
             std::clog << "           -mumax      Stop looking for chemical potential (" << mu_max << ")\n";
             std::clog << "           -Mix        Linear mixing parameter for charge (" << Mix << ")\n";
@@ -527,6 +536,7 @@ int main(int argc, char* argv[], char* env[])
 
     //////////////////// Main SC - iteration loop ///////////////////////////
     for (int itt = 0; itt < nitt; itt++) {
+        clog << endl;
         clog << "****** Iteration number " << itt << " ************" << endl;
         /////////////////// Potential part /////////////////////////////
         if (itt > 0) {// We start with input potential rather than density. Calculation of potential skiped first time.
@@ -574,7 +584,7 @@ int main(int argc, char* argv[], char* env[])
 
         clog << "Weight in the MT sphere = " << sMTRho << " and in the interstitials = " << sIntRho << " and in core = " << scoreRho << endl;
         double renorm = Z / (sMTRho + sIntRho + scoreRho);
-        clog << "Total charge found = " << scoreRho + sMTRho + sIntRho << " should be " << Z << " -> renormalizing charge by " << renorm << endl;
+        clog << "Total charge found = " << scoreRho + sMTRho + sIntRho << ", should be " << Z << " -> renormalizing charge by " << renorm << endl;
         ///////////////// Renormalization of charge ////////////////////////
         for (int i = 0; i < wave.Rsize(); i++) nTotRho[i] *= renorm;
         //////////////////// Charge diference //////////////////////////////
@@ -584,7 +594,7 @@ int main(int argc, char* argv[], char* env[])
         //////////// Linear mixing. Could be improved with Broyden, Vanderbild or Johannson mixing /////////////
         for (int i = 0; i < wave.Rsize(); i++) TotRho[i] = TotRho[i] * (1 - Mix) + nTotRho[i] * Mix;
         ////////////// Convergence criteria ////////////////////////////////////////////////////
-        clog << "Core energy difference=" << COLOR(YELLOW, fabs(Ec - pEc)) << " Charge difference=" << COLOR(GREEN, ChargeDifference) << endl;
+        clog << "Core energy difference = " << COLOR(YELLOW, fabs(Ec - pEc)) << ", Charge difference = " << COLOR(GREEN, ChargeDifference) << endl;
         if (fabs(Ec - pEc) < precision) break;
         pEc = Ec;
     }

@@ -2,6 +2,7 @@
 #define NUMEROV
 
 #include <vector>
+
 template <class container>
 void Numerov(const container& F, int Nmax, double dx, std::vector<double>& Solution)
 {

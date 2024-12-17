@@ -89,7 +89,7 @@ void FindCoreStates(const vector<int>& core, int Z, double dEz, RadialWave& wave
                 for (int ir = 0; ir < coreRho.size(); ir++) coreRho[ir] += drho[ir] * 2 * (2 * l + 1);
                 Ec += 2 * (2 * l + 1) * Energy; // Sum of eigenvalues times degeneracy
                 Nc += dN;
-                clog << "Found core state for n=" << n + l << " l=" << l << " at " << Energy << endl;
+                clog << "Found core state for n = " << n + l << ", l = " << l << " at " << Energy << endl;
                 n++;
                 v0 = v1;
             }

@@ -18,22 +18,38 @@ class ExchangeCorrelation {
     //******************************************************************************/
     int type;
     double A, C;
-    static const double alphax = 0.610887057710857;//(3/(2 Pi))^(2/3)
-    static const double Aw = 0.0311;
-    static const double Bw = -0.048; //constexpr is used for c++11
-    static const double Cw = 0.002;
-    static const double D = -0.0116;
-    static const double gamma = -0.1423;
-    static const double beta1 = 1.0529;
-    static const double beta2 = 0.3334;
-    static const double Ap = 0.0621814;
-    static const double xp0 = -0.10498;
-    static const double bp = 3.72744;
-    static const double cp = 12.9352;
-    static const double Qp = 6.1519908;
-    static const double cp1 = 1.2117833;
-    static const double cp2 = 1.1435257;
-    static const double cp3 = -0.031167608;
+    //static const double alphax = 0.610887057710857;//(3/(2 Pi))^(2/3)
+    static constexpr double alphax = 0.610887057710857;//(3/(2 Pi))^(2/3)
+    //static const double Aw = 0.0311;
+    static constexpr double Aw = 0.0311;
+    //static const double Bw = -0.048;
+    static constexpr double Bw = -0.048;
+    //static const double Cw = 0.002;
+    static constexpr double Cw = 0.002;
+    //static const double D = -0.0116;
+    static constexpr double D = -0.0116;
+    //static const double gamma = -0.1423;
+    static constexpr double gamma = -0.1423;
+    //static const double beta1 = 1.0529;
+    static constexpr double beta1 = 1.0529;
+    //static const double beta2 = 0.3334;
+    static constexpr double beta2 = 0.3334;
+    //static const double Ap = 0.0621814;
+    static constexpr double Ap = 0.0621814;
+    //static const double xp0 = -0.10498;
+    static constexpr double xp0 = -0.10498;
+    //static const double bp = 3.72744;
+    static constexpr double bp = 3.72744;
+    //static const double cp = 12.9352;
+    static constexpr double cp = 12.9352;
+    //static const double Qp = 6.1519908;
+    static constexpr double Qp = 6.1519908;
+    //static const double cp1 = 1.2117833;
+    static constexpr double cp1 = 1.2117833;
+    //static const double cp2 = 1.1435257;
+    static constexpr double cp2 = 1.1435257;
+    //static const double cp3 = -0.031167608;
+    static constexpr double cp3 = -0.031167608;
 public:
     ExchangeCorrelation(int type_) : type(type_)
     {
