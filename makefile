@@ -6,9 +6,10 @@ exe = lapw
 CFLAGS = -O3
 FFLAGS = -O3
 CXXFLAGS = -std=c++23
+LDFLAGS = -llapack
 $(exe) : $(objects)
 #	g++ $(CFLAGS) -g -o $@ $(objects) $(LIBS)
-	$(C++) $(CFLAGS) $(CXXFLAGS) -g -o $@ $(objects)
+	$(C++) $(CFLAGS) $(CXXFLAGS) -g -o $@ $(objects) $(LDFLAGS)
 clean :
 	rm -f $(objects) $(exe)
 

@@ -445,7 +445,7 @@ inline void function2D<T>::MProduct(const function2D& A, const function2D& B, co
 template <class T>
 inline T identity(const T& x) { return x; }
 
-/*extern "C" void dgetrf_(int* n1, int* n2, double* a, int* lda, int* ipiv, int* info);
+extern "C" void dgetrf_(int* n1, int* n2, double* a, int* lda, int* ipiv, int* info);
 
 double Determinant(function2D<double>& A)
 {
@@ -459,6 +459,6 @@ double Determinant(function2D<double>& A)
     double det = 1;
     for (int i = 0; i < n; i++) det *= ((ipiv[i] == i) ? 1 : -1) * A(i, i);
     return det;
-}*/
+}
 
 #endif
