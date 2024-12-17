@@ -1,5 +1,5 @@
-C++ = g++-4.8
-LIBS = -L/opt/intel/mkl/10.0.011/lib/32 -pthread
+C++ = g++
+# LIBS = -L/opt/intel/mkl/10.0.011/lib/32 -pthread
 # LIBS = -L/opt/intel/mkl61/lib/32 -lmkl_lapack  -lmkl -lguide -L/opt/intel_fc_80/lib -lifcore
 objects = main.o
 exe = lapw
