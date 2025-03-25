@@ -1,18 +1,13 @@
 #ifndef _LBLAS_
 #define _LBLAS_
-using namespace std;
+
 extern "C" {
     void dsygvd_(const int* ITYPE, const char* JOBZ, const char* UPLO, const int* N,
         double* A, const int* LDA, double* B, const int* LDB, double* W, double* WORK, const int* LWORK,
         int* IWORK, const int* LIWORK, int* INFO);
 };
-void dsygvd_(const int* ITYPE, const char* JOBZ, const char* UPLO, const int* N,
-    double* A, const int* LDA, double* B, const int* LDB, double* W, double* WORK, const int* LWORK,
-    int* IWORK, const int* LIWORK, int* INFO)
-{
 
-}
-int Eigensystem(int N, function<double>& Energy, const function2D<double>& Olap, function2D<double>& F)
+int Eigensystem(int N, Function<double>& Energy, const function2D<double>& Olap, function2D<double>& F)
 {// C++ wrapper function for general eigenvalue problem
     static function2D<double> tOlap(N, N);
     int lwork = 1 + 6 * N + 2 * N * N + 10;

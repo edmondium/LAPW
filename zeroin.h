@@ -46,7 +46,7 @@
  */
 #ifndef _ZEROIN
 #define _ZEROIN
-#define DBL_EPSILON		2.22045e-16
+//#define DBL_EPSILON		2.22045e-16
 
 #include "assert.h"
 

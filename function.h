@@ -13,8 +13,8 @@
 //
 //                                       function2D<funProxy>
 //
-
-template<class T> class function;
+template<class T> class Function;
+//template<class T> class function;
 template<class T> class function1D;
 template<class T> class funProxy;
 template<class T> class function2D;
@@ -28,7 +28,8 @@ template<class T> class function2D;
 // argument (class intpar).							  //
 //********************************************************************************//
 template<class T>
-class function {
+//class function {
+class Function {
 protected:
     T* f;
     int N0, N;
@@ -38,16 +39,23 @@ public:
     const T& last() const { return f[N - 1]; }
     int size() const { return N; }
     int fullsize() const { return N0; }
-    function& operator+=(const function& m);
-    function& operator*=(const T& m);
+    Function& operator+=(const Function& m);
+    //function& operator+=(const function& m);
+    //function& operator*=(const T& m);
+    Function& operator*=(const T& m);
     T* MemPt() { return f; }
     const T* MemPt() const { return f; }
-    function& operator=(const T& c);
+    Function& operator=(const T& c);
+    //function& operator=(const T& c);
 protected:
-    function() : f(NULL), N0(0), N(0) {};
-    explicit function(int N_) : N0(N_), N(N_) {};
-    ~function() {};
-    function(const function&) {};
+    //function() : f(NULL), N0(0), N(0) {};
+    //explicit function(int N_) : N0(N_), N(N_) {};
+    //~function() {};
+    //function(const function&) {};
+    Function() : f(NULL), N0(0), N(0) {};
+    explicit Function(int N_) : N0(N_), N(N_) {};
+    ~Function() {};
+    Function(const Function&) {};
     template<class U> friend class function2D;
     //template <class U> friend U scalar_product(const function<U>& f1, const function<U>& f2);
 };
@@ -57,7 +65,8 @@ protected:
 // own constructors and destructors.				    //
 //******************************************************************//
 template <class T>
-class function1D : public function<T> {
+//class function1D : public function<T> {
+class function1D : public Function<T> {
 public:
     function1D() {};
     explicit function1D(int N_);
@@ -65,12 +74,14 @@ public:
     function1D(const function1D& m);
     void resize(int N_);
     function1D& operator=(const function1D& m);
-    function1D& operator=(const T& c) { function<T>::operator=(c); return *this; }
+    function1D& operator=(const T& c) { Function<T>::operator=(c); return *this; }
+    //function1D& operator=(const T& c) { function<T>::operator=(c); return *this; }
     //void Product(const function2D<T>& A, const function<T>& x, double alpha = 1., double beta = 0.);
 };
 
 template <class T>
-class funProxy : public function<T> {
+//class funProxy : public function<T> {
+class funProxy : public Function<T> {
 public:
     void Initialize(int N_, T* f_);
     void ReInitialize(int N_, T* f_);
@@ -123,7 +134,8 @@ public:
 
 // function ////////////////////////////////////////////////////////////////
 template<class T>
-inline function<T>& function<T>::operator+=(const function& m)
+//inline function<T>& function<T>::operator+=(const function& m)
+inline Function<T>& Function<T>::operator+=(const Function& m)
 {
     T_LOG(if (N != m.size()) cerr << "Functions not of equal length! Can't sum!" << std::endl;)
         for (int i = 0; i < N; i++) f[i] += m[i];
@@ -131,14 +143,16 @@ inline function<T>& function<T>::operator+=(const function& m)
 }
 
 template<class T>
-inline function<T>& function<T>::operator*=(const T& m)
+//inline function<T>& function<T>::operator*=(const T& m)
+inline Function<T>& Function<T>::operator*=(const T& m)
 {
     for (int i = 0; i < N; i++) f[i] *= m;
     return *this;
 }
 
 template <class T>
-inline function<T>& function<T>::operator=(const T& c)
+//inline function<T>& function<T>::operator=(const T& c)
+inline Function<T>& Function<T>::operator=(const T& c)
 {
     T_LOG(if (N <= 0) cerr << "Size of function is non positive! " << N << std::endl;)
         for (int i = 0; i < N; i++) f[i] = c;
@@ -147,7 +161,8 @@ inline function<T>& function<T>::operator=(const T& c)
 
 // function1D ////////////////////////////////////////////////////////////
 template<class T>
-inline function1D<T>::function1D(int N_) : function<T>(N_)
+//inline function1D<T>::function1D(int N_) : function<T>(N_)
+inline function1D<T>::function1D(int N_) : Function<T>(N_)
 {
     this->f = new T[N_];
 }
@@ -380,10 +395,6 @@ extern "C"
     void dsymm_(const char* side, const char* uplo, const int* m, const int* n, const double* alpha, const double* A, const int* lda, const double* B, const int* ldb, const double* beta, double* C, const int* ldc);
 }
 void dgemm_(const char* transa, const char* transb, const int* m, const int* n, const int* k, const double* alpha, const double* A, const int* lda, const double* B, const int* ldb, const double* beta, double* C, const int* ldc)
-{
-
-}
-void dsymm_(const char* side, const char* uplo, const int* m, const int* n, const double* alpha, const double* A, const int* lda, const double* B, const int* ldb, const double* beta, double* C, const int* ldc)
 {
 
 }

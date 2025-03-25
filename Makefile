@@ -1,4 +1,4 @@
-C++ = g++
+C++ = c++
 # LIBS = -L/opt/intel/mkl/10.0.011/lib/32 -pthread
 # LIBS = -L/opt/intel/mkl61/lib/32 -lmkl_lapack  -lmkl -lguide -L/opt/intel_fc_80/lib -lifcore
 objects = main.o
@@ -12,7 +12,7 @@ $(exe) : $(objects)
 	$(C++) $(CFLAGS) $(CXXFLAGS) -g -o $@ $(objects) $(LDFLAGS)
 clean :
 	rm -f $(objects) $(exe)
-
+.INTERMEDIATE: $(objects)
 
 .SUFFIXES : .cpp
 .cpp.o:

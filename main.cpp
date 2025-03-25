@@ -16,7 +16,8 @@ int main()
 #include "kmesh.h"
 #include "bessel.h"
 #include "zeroin.h"
-#include "erf.h"
+//#include "erf.h"
+#include <cmath>
 #include "function.h"
 #include "blas.h"
 #include "exchcorr.h"
@@ -223,7 +224,7 @@ public:
         for (int ik = 0; ik < epsk.size_N(); ik++)
             for (int p = 0; p < epsk.size_Nd(); p++)
                 //	if (epsk(ik,p)<=mu) nn += wk[ik];
-                nn += wk[ik] * 0.5 * (1 + ErrorFunction((mu - epsk(ik, p)) * broad));
+                nn += wk[ik] * 0.5 * (1 + erf((mu - epsk(ik, p)) * broad));
         //    clog<<mu<<" "<<2*nn-Zval<<endl;
         return 2 * nn - Zval; // because of spin, factor of 2!
     }
@@ -289,7 +290,8 @@ public:
             }
         }
     }
-    void ComputeEigensystem(const dvector3& k, const PartialWave& wave, const vector<double>& Enu, double VKSi, function<double>& Energy)
+    //void ComputeEigensystem(const dvector3& k, const PartialWave& wave, const vector<double>& Enu, double VKSi, function<double>& Energy)
+    void ComputeEigensystem(const dvector3& k, const PartialWave& wave, const vector<double>& Enu, double VKSi, Function<double>& Energy)
     {// Hamiltonian and Overlap for the valence states is calculated
       // Bessel functions can be calculated only ones for each K-point
         for (int iK = 0; iK < Ksize; iK++)
@@ -395,7 +397,8 @@ public:
         sIntRho *= 2;// due to spin
         return sIntRho;
     }
-    void PrintBandStructure(int ik, const function<double>& Energy, ostream& out)
+    //void PrintBandStructure(int ik, const function<double>& Energy, ostream& out)
+    void PrintBandStructure(int ik, const Function<double>& Energy, ostream& out)
     {
         out << setw(10) << ik / (ksize - 1.) << " ";
         for (int iK = 0; iK < Ksize; iK++) out << setw(12) << Energy[iK] << " ";
@@ -494,7 +497,7 @@ int main(int argc, char* argv[], char* env[])
 
     fcc.GenerateReciprocalVectors(4, CutOffK);// Reciprocal bravais lattice is builded, K points taken into account only for |K|<CutOff
     fcc.ChoosePointsInFBZ(nkp, 0);             // Chooses the path in the 1BZ or the k-points in the irreducible 1BZ
-    ExchangeCorrelation XC(3);                // Exchange correlations class; WVN seems to be the best (look http://physics.nist.gov/PhysRefData/DFTdata/Tables/ptable.html)
+    ExchangeCorrelation XC(3);                // Exchange correlations class; VWN seems to be the best (look http://physics.nist.gov/PhysRefData/DFTdata/Tables/ptable.html)
 
     vector<double> Enu(lMax + 1);             // Linearization energies. Should be in the center of the occupied band
     Enu[0] = 0.11682;                       // Most of high energy partial waves should be centered around mu
