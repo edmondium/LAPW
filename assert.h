@@ -1,25 +1,29 @@
 #ifndef ASSERT_
 #define ASSERT_
 
-#ifdef NO_ARG_CHECK
-#define Assert(condition, message) ((void)0)
-#else /* NO_ARG_CHECK */
 #include <iostream>
-#include <cstdlib>
-#define Assert(condition, message)\
-do {\
-  if(!(condition)){ \
-    std::cerr << "Assertion failed: " << (message) << "\n" \
-              << "File: " << __FILE__ << ", Line: " << __LINE__ << std::endl;\
-    std::abort(); \
-  } \
-} while (0)
-#endif /* NO_ARG_CHECK */
+#include <source_location>
+#include <stdexcept>
 
+// Custom assert functionality using C++23 features
+inline void Assert(
+    bool condition,
+    const std::string& message,
+    const std::source_location location = std::source_location::current()) {
+    if (!condition) {
+        std::cerr << "Assertion failed: " << message << "\n"
+                  << "File: " << location.file_name() << "\n"
+                  << "Function: " << location.function_name() << "\n"
+                  << "Line: " << location.line() << std::endl;
+        std::terminate(); // Replace std::abort with std::terminate
+    }
+}
+
+// Debugging log macro with T_DEBUG support
 #ifdef T_DEBUG
 #define T_LOG(x) x
 #else
 #define T_LOG(x)
 #endif
 
-#endif /* ASSERT_ */
+#endif // ASSERT_
