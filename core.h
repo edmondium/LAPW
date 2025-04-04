@@ -1,9 +1,6 @@
 #ifndef _CORE_
 #define _CORE_
-#include <cmath>
-#include "numerov.h"
-#include "zeroin.h"
-using namespace std;
+
 class RadialWave {
 public:
     int N;
@@ -81,7 +78,7 @@ void FindCoreStates(const vector<int>& core, int Z, double dEz, RadialWave& wave
         while (n < core[l] && x < 10.) {
             x += dEz;                                     // Proceeding in small steps to bracket all zeros
             v1 = wave(x);                               // New value of radial function at origin
-            if (v0 * v1 < 0) {                              // Changs sign?
+            if (v0 * v1 < 0) {                              // Change sign?
                 double Energy = zeroin(x - dEz, x, wave, 1e-10); // Root-finder locates bound state very precisely
                 //cout<<"Debugcore "<<l<<" "<<Energy<<endl;
                 int dN = 2 * (2 * l + 1);  // degeneracy of each radial wave level

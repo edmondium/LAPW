@@ -3,7 +3,6 @@
 
 #include <cmath>                    // For std::sph_bessel and other math functions
 #include <boost/math/special_functions/factorials.hpp> // For Boost double factorial
-#include <source_location>          // For enhanced debugging (C++23)
 
 // Computes the double factorial using Boost
 inline double DoubleFactorial(int l) {
